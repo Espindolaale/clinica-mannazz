@@ -1,117 +1,273 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Clínica Mannaz | Medicina Estética Integral</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clínica Mannaz | Medicina Estética Integral en Montevideo</title>
+  <meta name="description" content="Clínica Mannaz: medicina estética integral en Montevideo. Atención cálida, profesional y segura. Agendá por llamada o Instagram." />
 
-<style>
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  background:#0e1117;
-  color:white;
-}
-.wrap{max-width:1100px;margin:auto;padding:20px}
-.card{
-  background:#161b22;
-  border-radius:16px;
-  padding:20px;
-  margin-bottom:20px;
-}
-.btn{
-  display:inline-block;
-  padding:12px 16px;
-  border-radius:10px;
-  text-decoration:none;
-  margin:5px 5px 5px 0;
-}
-.primary{
-  background:#25D366;
-  color:black;
-  font-weight:600;
-}
-.secondary{
-  background:#1f2937;
-  color:white;
-}
-h1{font-size:36px}
-.small{font-size:14px;color:#aaa}
-footer{text-align:center;padding:40px 0;color:#777}
-iframe{width:100%;height:300px;border:0;border-radius:16px}
-.social a{
-  margin-right:10px;
-  color:#7dd3fc;
-  text-decoration:none;
-  font-weight:600;
-}
-</style>
+  <style>
+    :root{
+      --bg:#f7fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --brand:#2563eb;      /* azul */
+      --brand2:#0ea5e9;     /* celeste */
+      --ok:#10b981;
+      --max:1100px;
+      --r:18px;
+      --shadow: 0 18px 50px rgba(2,6,23,.08);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 12% -10%, rgba(37,99,235,.12), transparent 60%),
+        radial-gradient(800px 520px at 92% 0%, rgba(14,165,233,.10), transparent 60%),
+        linear-gradient(180deg, #ffffff, var(--bg));
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 20px}
+    header{padding:56px 0 24px}
+    section{padding:28px 0}
+    footer{padding:28px 0 60px; color:var(--muted)}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      position:sticky; top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.70);
+      border-bottom:1px solid var(--line);
+      z-index:20;
+    }
+    .brand{font-weight:800; letter-spacing:.2px}
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border:1px solid var(--line);
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      background: rgba(255,255,255,.75);
+    }
+    .btns{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 14px; border-radius:14px; text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.9);
+      transition: transform .06s ease, box-shadow .2s ease, background .2s ease;
+      box-shadow: 0 10px 30px rgba(2,6,23,.06);
+      font-weight:650;
+      color: #0f172a;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 16px 40px rgba(2,6,23,.10)}
+    .primary{
+      border-color: rgba(37,99,235,.22);
+      background: linear-gradient(135deg, rgba(37,99,235,.10), rgba(14,165,233,.08));
+      color:#0b1220;
+    }
+    .accent{
+      border-color: rgba(16,185,129,.20);
+      background: linear-gradient(135deg, rgba(16,185,129,.14), rgba(16,185,129,.06));
+    }
+    .hero{
+      display:grid; grid-template-columns: 1.15fr .85fr; gap:18px;
+      align-items:stretch;
+      padding:18px 0 0;
+    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+    h1{font-size:44px; line-height:1.08; margin:10px 0 10px}
+    @media (max-width: 520px){ h1{font-size:34px} }
+    .muted{color:var(--muted)}
+    .card{
+      background: var(--card);
+      border:1px solid var(--line);
+      border-radius: var(--r);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:14px}
+    .span6{grid-column: span 6}
+    .span4{grid-column: span 4}
+    .span8{grid-column: span 8}
+    .span12{grid-column: span 12}
+    @media (max-width: 900px){
+      .span6,.span4,.span8{grid-column: span 12}
+    }
+    .kpi{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .kpi .pill{background:#fff}
+    .section-title{display:flex; align-items:flex-end; justify-content:space-between; gap:14px}
+    .section-title h2{margin:0; font-size:22px}
+    .divider{height:1px; background:var(--line); margin:14px 0 0}
+    details{
+      border:1px solid var(--line);
+      border-radius: 14px;
+      padding:12px 14px;
+      background:#fff;
+    }
+    summary{cursor:pointer; font-weight:750}
+    iframe{width:100%; height:320px; border:0; border-radius:16px}
+    .sticky{
+      position:fixed; right:18px; bottom:18px; z-index:99;
+    }
+    .sticky a{box-shadow: 0 18px 60px rgba(2,6,23,.18)}
+    .small{font-size:13px}
+    .link{color: var(--brand); text-decoration:none; font-weight:700}
+    .link:hover{text-decoration:underline}
+  </style>
 </head>
 
 <body>
 
-<div class="wrap">
+  <!-- Sticky CTA (sin WhatsApp) -->
+  <div class="sticky">
+    <a class="btn primary" href="tel:+59899482245">Llamar para agendar</a>
+  </div>
 
-<h1>Clínica Mannaz</h1>
-<p class="small">Medicina Estética Integral en Montevideo</p>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">Clínica Mannaz</div>
+      <div class="btns">
+        <a class="btn" href="https://www.instagram.com/clinicamannaz/" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn primary" href="tel:+59899482245">Llamar</a>
+        <a class="btn accent" href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Mannaz%20Medicina%20Est%C3%A9tica%20Integral%20Montevideo" target="_blank" rel="noopener">Ver reseñas</a>
+      </div>
+    </div>
 
-<div class="card">
-<h2>Medicina estética con criterio médico</h2>
-<p>Protocolos, higiene, seguridad y seguimiento personalizado. Evaluación inicial para definir el mejor plan para vos.</p>
+    <header>
+      <div class="hero">
+        <div class="card">
+          <span class="pill">⭐ 5.0/5 • 17 reseñas • Montevideo</span>
+          <h1>Medicina estética integral, con criterio médico y trato cálido</h1>
+          <p class="muted">
+            En Clínica Mannaz priorizamos protocolos, higiene, seguridad y seguimiento.
+            Primera consulta para definir un plan personalizado según tus objetivos.
+          </p>
 
-<a class="btn primary" target="_blank"
-href="https://api.whatsapp.com/send?phone=59899482245&text=Hola%2C%20quiero%20agendar%20una%20consulta%20en%20Cl%C3%ADnica%20Mannaz.%20%C2%BFMe%20indican%20disponibilidad%3F">
-Agendar por WhatsApp
-</a>
+          <div class="btns" style="margin-top:14px">
+            <a class="btn primary" href="tel:+59899482245">Llamar para agendar</a>
+            <a class="btn" href="https://www.instagram.com/clinicamannaz/" target="_blank" rel="noopener">Agendar por Instagram</a>
+            <a class="btn accent" href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Mannaz%20Medicina%20Est%C3%A9tica%20Integral%20Montevideo" target="_blank" rel="noopener">Ver reseñas</a>
+          </div>
 
-<a class="btn secondary" href="tel:+59899482245">
-Llamar ahora
-</a>
+          <div class="kpi">
+            <span class="pill">📍 Juan Benito Blanco 3388</span>
+            <span class="pill">🕘 Cierra 21:00</span>
+            <span class="pill">🌐 <a class="link" href="https://clinicamannaz.com.uy" target="_blank" rel="noopener">clinicamannaz.com.uy</a></span>
+          </div>
 
-</div>
+          <p class="small muted" style="margin-top:12px">
+            Redes: <a class="link" href="https://www.instagram.com/clinicamannaz/" target="_blank" rel="noopener">Instagram</a> •
+            <a class="link" href="https://www.facebook.com/p/Cl%C3%ADnica-Mannaz-Medicina-Est%C3%A9tica-Integral-10009425916" target="_blank" rel="noopener">Facebook</a>
+          </p>
+        </div>
 
-<div class="card">
-<h2>Reseñas</h2>
-<p>⭐ 5.0 / 5 — 17 reseñas en Google</p>
+        <div class="card">
+          <div class="section-title">
+            <h2>Lo que más destacan</h2>
+            <span class="pill small">Profesionalismo + calidez</span>
+          </div>
+          <div class="divider"></div>
 
-<a class="btn secondary" target="_blank"
-href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica+Mannaz+Medicina+Est%C3%A9tica+Integral+Montevideo">
-Ver reseñas en Google
-</a>
-</div>
+          <div class="grid" style="margin-top:14px">
+            <div class="card span12" style="box-shadow:none">
+              <b>Confianza y seguridad</b><br><span class="muted">Te escuchan y explican opciones con claridad.</span>
+            </div>
+            <div class="card span12" style="box-shadow:none">
+              <b>Equipo profesional</b><br><span class="muted">Atención humana y altamente calificada.</span>
+            </div>
+            <div class="card span12" style="box-shadow:none">
+              <b>Instalaciones cuidadas</b><br><span class="muted">Ambiente prolijo, higiénico y cómodo.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<div class="card">
-<h2>Servicios</h2>
-<ul>
-<li>Medicina estética facial</li>
-<li>Medicina estética corporal</li>
-<li>Planes personalizados</li>
-<li>Seguimiento profesional</li>
-</ul>
-</div>
+    <section>
+      <div class="section-title">
+        <h2>Servicios principales</h2>
+        <span class="pill small">Según evaluación</span>
+      </div>
+      <div class="divider"></div>
 
-<div class="card">
-<h2>Contacto</h2>
-<p>📍 Juan Benito Blanco 3388, Montevideo</p>
-<p>🕘 Abierto — Cierra 21:00</p>
+      <div class="grid" style="margin-top:14px">
+        <div class="card span4"><b>Medicina estética facial</b><br><span class="muted">Plan según objetivos y evaluación.</span></div>
+        <div class="card span4"><b>Medicina estética corporal</b><br><span class="muted">Opciones y acompañamiento profesional.</span></div>
+        <div class="card span4"><b>Planes personalizados</b><br><span class="muted">Expectativas realistas y seguimiento.</span></div>
+        <div class="card span4"><b>Protocolos e higiene</b><br><span class="muted">Seguridad y prolijidad.</span></div>
+        <div class="card span4"><b>Orientación</b><br><span class="muted">Explicación clara de alternativas.</span></div>
+        <div class="card span4"><b>Seguimiento</b><br><span class="muted">Acompañamiento durante el proceso.</span></div>
+      </div>
+    </section>
 
-<div class="social">
-<a href="https://www.instagram.com/clinicamannaz/" target="_blank">Instagram</a>
-<a href="https://www.facebook.com/p/Cl%C3%ADnica-Mannaz-Medicina-Est%C3%A9tica-Integral-10009425916" target="_blank">Facebook</a>
-</div>
+    <section>
+      <div class="section-title">
+        <h2>FAQ</h2>
+        <span class="pill small">Respuestas clave</span>
+      </div>
+      <div class="divider"></div>
 
-<br>
+      <div class="grid" style="margin-top:14px">
+        <div class="span6"><details><summary>¿Cómo funciona la primera consulta?</summary><p class="muted">Se evalúa tu caso y objetivos. Con esa información se define un plan y se explican opciones y cuidados.</p></details></div>
+        <div class="span6"><details><summary>¿Los resultados son inmediatos?</summary><p class="muted">Depende del tratamiento y de cada persona. Se alinea expectativa en la evaluación inicial.</p></details></div>
+        <div class="span6"><details><summary>¿Cuántas sesiones se necesitan?</summary><p class="muted">Varía según el caso, biología y objetivos. Se define un plan estimado luego de evaluar.</p></details></div>
+        <div class="span6"><details><summary>¿Duele?</summary><p class="muted">La experiencia puede variar. En consulta se explica qué sentir y cómo se maneja la comodidad.</p></details></div>
+        <div class="span6"><details><summary>¿Cuánto dura una sesión?</summary><p class="muted">Depende del plan. Te lo informan al agendar.</p></details></div>
+        <div class="span6"><details><summary>¿Es seguro para mi piel/mi caso?</summary><p class="muted">Lo ideal es una evaluación previa. Se revisan antecedentes relevantes para decidir el enfoque.</p></details></div>
+        <div class="span6"><details><summary>¿Cómo se agenda?</summary><p class="muted">Podés agendar por llamada o por Instagram. Si preferís, podés consultar reseñas en Google Maps.</p></details></div>
+        <div class="span6"><details><summary>¿Qué cuidados debo tener antes/después?</summary><p class="muted">Varían según el plan. Se indican de forma clara y personalizada.</p></details></div>
+      </div>
 
-<iframe
-src="https://www.google.com/maps?q=Juan%20Benito%20Blanco%203388%20Montevideo&output=embed">
-</iframe>
+      <div class="card" style="margin-top:14px">
+        <div class="section-title">
+          <h2>¿Agendamos?</h2>
+          <span class="pill small">Respuesta rápida</span>
+        </div>
+        <div class="btns" style="margin-top:12px">
+          <a class="btn primary" href="tel:+59899482245">Llamar para agendar</a>
+          <a class="btn" href="https://www.instagram.com/clinicamannaz/" target="_blank" rel="noopener">Agendar por Instagram</a>
+          <a class="btn accent" href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Mannaz%20Medicina%20Est%C3%A9tica%20Integral%20Montevideo" target="_blank" rel="noopener">Ver reseñas</a>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section>
+      <div class="section-title">
+        <h2>Contacto</h2>
+        <span class="pill small">Ubicación y horarios</span>
+      </div>
+      <div class="divider"></div>
 
-<footer>
-© 2026 Clínica Mannaz
-</footer>
+      <div class="grid" style="margin-top:14px">
+        <div class="card span6">
+          <b>Dirección</b><br><span class="muted">Juan Benito Blanco 3388, 11300 Montevideo</span><br><br>
+          <b>Horario</b><br><span class="muted">Abierto • Cierra 21:00</span><br><br>
+          <b>Teléfono</b><br><a class="link" href="tel:+59899482245">+598 99 482 245</a><br><br>
+          <b>Instagram</b><br><a class="link" href="https://www.instagram.com/clinicamannaz/" target="_blank" rel="noopener">@clinicamannaz</a><br>
+          <b>Facebook</b><br><a class="link" href="https://www.facebook.com/p/Cl%C3%ADnica-Mannaz-Medicina-Est%C3%A9tica-Integral-10009425916" target="_blank" rel="noopener">Página</a><br><br>
+          <b>Reseñas</b><br><a class="link" href="https://www.google.com/maps/search/?api=1&query=Cl%C3%ADnica%20Mannaz%20Medicina%20Est%C3%A9tica%20Integral%20Montevideo" target="_blank" rel="noopener">Ver en Google Maps</a>
+        </div>
 
-</div>
+        <div class="card span6">
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Juan%20Benito%20Blanco%203388%20Montevideo&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <footer class="wrap">
+      <span class="muted">© <span id="y"></span> Clínica Mannaz — Medicina Estética Integral</span>
+    </footer>
+  </div>
+
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
